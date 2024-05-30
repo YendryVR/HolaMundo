@@ -9,19 +9,17 @@ public class Movies {
     public String Description;
     public String Gender;
     public String AgeRestriction;
-    
 
-      public Movies(int idMovie, String title, String Gender, String timer, String AgeRestriction, String Description) {
-      
-      
+    public Movies(int idMovie, String title, String Gender, String timer, String AgeRestriction, String Description) {
+
         this.idMovie = idMovie;
         this.timer = timer;
         this.Description = Description;
         this.title = title;
         this.Gender = Gender;
         this.AgeRestriction = AgeRestriction;
-       
-            }//end constructor
+
+    }//end constructor
 
     public int getIdMovie() {
         return idMovie;
@@ -31,22 +29,22 @@ public class Movies {
         this.idMovie = idMovie;
     }
 
-       public String getTimer() {
+    public String getTimer() {
         return timer;
     }
 
     public void setTimer(String timer) {
         this.timer = timer;
     }
-    
-       public String getDescription() {
+
+    public String getDescription() {
         return Description;
     }
 
     public void setDescripcion(String Description) {
         this.Description = Description;
     }
-    
+
     public String getTitle() {
         return title;
     }
@@ -63,8 +61,6 @@ public class Movies {
         this.Gender = Gender;
     }
 
- 
-
     public String getAgeRestriction() {
         return AgeRestriction;
     }
@@ -73,14 +69,10 @@ public class Movies {
         this.AgeRestriction = AgeRestriction;
     }
 
- 
-
-
-
- @Override
+    @Override
     public String toString() {
         return idMovie + "," + title + "," + Gender + "," + timer + "," + AgeRestriction + "," + Description;
-                
+
     }
 
 }

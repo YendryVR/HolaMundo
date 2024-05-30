@@ -3,9 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Presentation;
-import org.netbeans.lib.awtextra.AbsoluteConstraints;
-import org.netbeans.lib.awtextra.AbsoluteLayout;
-import Login.VerificarInicioSesion;
+
+import Login.VerifyLogin;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,10 +13,9 @@ import javax.swing.JOptionPane;
  */
 public class AdmUserr extends javax.swing.JFrame {
 
-    VerificarInicioSesion iniciarSesion = new VerificarInicioSesion();
-    private int intentosRestantes = 3; // Declarar esto como una variable de instancia
-    private int intentosFallidos = 0; // Contador de intentos fallidos
-
+    VerifyLogin loginVerifier = new VerifyLogin();
+    private int remainingAttempts = 3; // Declare this as an instance variable
+    private int failedAttempts = 0; // Counter for failed attempts
     /**
      * Creates new form AdmUserr
      */
@@ -39,8 +37,8 @@ public class AdmUserr extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
-        txtContrasenna = new javax.swing.JPasswordField();
+        txtUsername = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
         btnIngresar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -73,14 +71,14 @@ public class AdmUserr extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("User");
 
-        txtUsuario.setBackground(new java.awt.Color(204, 204, 204));
-        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtUsername.setBackground(new java.awt.Color(204, 204, 204));
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioActionPerformed(evt);
+                txtUsernameActionPerformed(evt);
             }
         });
 
-        txtContrasenna.setBackground(new java.awt.Color(204, 204, 204));
+        txtPassword.setBackground(new java.awt.Color(204, 204, 204));
 
         btnIngresar.setBackground(new java.awt.Color(0, 51, 102));
         btnIngresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -139,8 +137,8 @@ public class AdmUserr extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtContrasenna, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(58, Short.MAX_VALUE)
@@ -157,11 +155,11 @@ public class AdmUserr extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtContrasenna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIngresar)
@@ -178,26 +176,27 @@ public class AdmUserr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        // TODO add your handling code here:
-        String usuario = txtUsuario.getText();
-        String contrasena = txtContrasenna.getText();
+       // Get the username and password from the input fields
+String username = txtUsername.getText();
+String password = txtPassword.getText();
 
-        if (iniciarSesion.verificar(usuario, contrasena)) {
-            // Credenciales correctas, continuar con la lógica de tu aplicación
-            ;
-        } else {
-            intentosFallidos++; // Incrementa el contador de intentos fallidos
-            intentosRestantes = 3 - intentosFallidos; // Calcula los intentos restantes
+// Verify the username and password using the VerifyLogin object
+if (loginVerifier.verify(username, password)) {
+    // If the credentials are correct, proceed with your application logic
+} else {
+    // If the credentials are incorrect
+    failedAttempts++; // Increment the failed attempts counter
+    remainingAttempts = 3 - failedAttempts; // Calculate the remaining attempts
 
-            if (intentosRestantes > 0) {
-                // Muestra un mensaje de error con la cantidad de intentos restantes
-                JOptionPane.showMessageDialog(this, "Credenciales incorrectas. Quedan " + intentosRestantes + " intentos", "Error", JOptionPane.ERROR_MESSAGE);
-            } else {
-                // Muestra un mensaje de error y cierra la aplicación cuando los intentos se agotan
-                JOptionPane.showMessageDialog(this, "Se agotaron los intentos. La aplicación se cerrará.", "Error", JOptionPane.ERROR_MESSAGE);
-                System.exit(0); // Cierra la aplicación
-            }
-        }
+    if (remainingAttempts > 0) {
+        // If there are remaining attempts, show an error message with the number of attempts left
+        JOptionPane.showMessageDialog(this, "Incorrect credentials. " + remainingAttempts + " attempts remaining.", "Error", JOptionPane.ERROR_MESSAGE);
+    } else {
+        // If there are no remaining attempts, show an error message and exit the application
+        JOptionPane.showMessageDialog(this, "Attempts exhausted. The application will close.", "Error", JOptionPane.ERROR_MESSAGE);
+        System.exit(0); // Close the application
+    }
+}
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -205,9 +204,9 @@ public class AdmUserr extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioActionPerformed
+    }//GEN-LAST:event_txtUsernameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,7 +253,7 @@ public class AdmUserr extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField txtContrasenna;
-    private javax.swing.JTextField txtUsuario;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
