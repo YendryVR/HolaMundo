@@ -11,7 +11,7 @@ package Login;
 public class VerifyLogin  {
 
     private final String username = "jonxvi"; // Predefined username
-    private final String password = "Octanechikito26"; // Predefined password
+    private final String password = "123"; // Predefined password
     public int verification; // Verification variable
 
     /**

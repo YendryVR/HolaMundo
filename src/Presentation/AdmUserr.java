@@ -182,6 +182,9 @@ String password = txtPassword.getText();
 
 // Verify the username and password using the VerifyLogin object
 if (loginVerifier.verify(username, password)) {
+    Carousel carousel = new Carousel();
+    this.setVisible(false);
+    carousel.setVisible(true);
     // If the credentials are correct, proceed with your application logic
 } else {
     // If the credentials are incorrect
