@@ -15,12 +15,12 @@ import java.util.ArrayList;
  */
 public class Main {
 
-     public static void main(String[] args) {
+    public static void main(String[] args) {
         // Create programs
         LocalDateTime now = LocalDateTime.now();
         Programs p1 = new Programs("Doki", "A dog and his crazy adventures", 45, now, now.plusMinutes(45));
         Programs p2 = new Programs("News", "Daily news", 30, now.plusMinutes(60), now.plusMinutes(90));
-        
+
         // Create program lists
         ArrayList<Programs> programming1 = new ArrayList<>();
         programming1.add(p1);

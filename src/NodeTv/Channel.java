@@ -1,6 +1,4 @@
- 
 package NodeTv;
-
 
 import java.util.ArrayList;
 
@@ -9,9 +7,6 @@ import java.util.ArrayList;
  * @author Rene y yendry
  *
  */
-
-
-
 public class Channel {
 
     private int channel;
@@ -22,7 +17,7 @@ public class Channel {
         this.channel = channel;
         this.Programming = Programming;
         this.numberOfPrograms = numberOfPrograms;
-        
+
     }
 
     public int getChannel() {
@@ -48,9 +43,5 @@ public class Channel {
     public void setnumberOfPrograms(int numberOfPrograms) {
         this.numberOfPrograms = numberOfPrograms;
     }
-    
-
-
 
 }
-
