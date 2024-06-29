@@ -1,5 +1,6 @@
 package Login;
-
+import Graph.GraphEdgeMatrix;
+import Graph.GraphException;
 public class Accounts {
  
     public int idAccount;
@@ -8,6 +9,9 @@ public class Accounts {
     public String birthdate;
     public String mail;
     public String region;
+    public GraphEdgeMatrix gem;
+    public Profiles profile;
+    
 
     public Accounts(String name, String lastName, String birthdate, String mail, String region) {
         this.name = name;
@@ -15,6 +19,20 @@ public class Accounts {
         this.birthdate = birthdate;
         this.mail = mail;
         this.region = region;
+        try {
+         gem = new GraphEdgeMatrix(5);
+         } catch (GraphException e) {
+            e.printStackTrace();
+        }
+    }
+    public void addProfile(Profiles profile){
+        try {   gem.addVertex(profile);
+    } catch (GraphException e) {
+            e.printStackTrace();
+        }
+    }
+    public GraphEdgeMatrix getGraph(){    
+        return gem;
     }
     public int getIdAccount() {
         return idAccount;
