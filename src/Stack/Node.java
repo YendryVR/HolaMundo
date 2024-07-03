@@ -1,5 +1,5 @@
 
-package NodeTv.Stack;
+package Stack;
 
 /**
  *

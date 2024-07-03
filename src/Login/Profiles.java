@@ -4,19 +4,30 @@
  */
 package Login;
 
+//import com.fasterxml.jackson.annotation.JsonCreator;
+//import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Profiles {
     private String name;
+    private int id;
     private int age;
     private String image;
-    
     public Profiles(String name,int age){
     this.name=name;
     this.age=age;    
     }
-      public Profiles(String name,int age,String image){
+    
+    public Profiles(int id,String name,int age,String image){
+    this.id=id;
     this.name=name;
     this.age=age;    
     this.image=image;
+    }
+    public void setId(int id){
+        this.id=id;
+    }
+    public int getId(){
+        return id;
     }
     public void setName(String name){
     this.name=name;
@@ -37,7 +48,15 @@ public class Profiles {
         return image;
     }
             
+
+    
+        @Override
     public String toString(){
-    return name;
+        return "profiles{" +
+                "Id=" + id +
+                "Name=" + name +
+                ",Age=" + age + '\'' +
+                ",image='" + image + '\''+
+                '}';
     }
 }

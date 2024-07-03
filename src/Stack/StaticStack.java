@@ -1,44 +1,44 @@
+package Stack;
 
-package NodeTv.Stack;
-
-public class StaticStack implements Stack {
+public class StaticStack<E> implements Stack<E> {
     
-    private Object S[];
+    private E[] S;
     private int top;
 
     public StaticStack(int n) {
         if(n <= 0)
             System.exit(0);
-        this.S = new Object[n];
+        // Crear el array de tipo E
+        this.S = (E[]) new Object[n];
         top = -1;
     }
     
     @Override
     public int getSize() throws StackException{
-        return top+1;
+        return top + 1;
     }
 
     @Override
     public boolean isEmpty() throws StackException{
-        return top<0;
+        return top < 0;
     }
 
     @Override
-    public Object top() throws StackException{        
+    public E top() throws StackException{        
         if(isEmpty())
             throw new StackException("The stack is empty");
         return S[top];
     }
 
     @Override
-    public void push(Object element) throws StackException {
-        if(getSize()==S.length)
+    public void push(E element) throws StackException {
+        if(getSize() == S.length)
             throw new StackException("The Stack is Full");
-        S[++top]= element; 
+        S[++top] = element; 
     }
 
     @Override
-    public Object pop() throws StackException { 
+    public E pop() throws StackException { 
         if(isEmpty())
             throw new StackException("The stack is empty");
         return S[top--];
@@ -46,14 +46,10 @@ public class StaticStack implements Stack {
 
     @Override
     public String toString() {
-        String stackData="";
+        StringBuilder stackData = new StringBuilder();
         for (int i = top; i >= 0; i--) {
-            stackData +="Value: "+S[i]+"\n";
+            stackData.append("Value: ").append(S[i]).append("\n");
         }
-        
-        return stackData;
-    }
-    
-    
-    
+        return stackData.toString();
+    }  
 }

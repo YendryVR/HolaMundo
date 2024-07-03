@@ -1,25 +1,39 @@
 package Login;
 import Graph.GraphEdgeMatrix;
 import Graph.GraphException;
+//import com.fasterxml.jackson.annotation.JsonCreator;
+//import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Accounts {
  
-    public int idAccount;
-    public String name;
-    public String lastName;
-    public String birthdate;
-    public String mail;
-    public String region;
+    private int id;
+    private String name;
+    private String lastName;    
+    private String mail;
+    private String region;
+    private String password;
+    private String birthdate;
     public GraphEdgeMatrix gem;
     public Profiles profile;
     
+    
 
-    public Accounts(String name, String lastName, String birthdate, String mail, String region) {
+    //@JsonCreator
+    public Accounts(int id,
+            String name,
+            String lastName,
+            String birthdate,
+            String mail,
+            String region,
+            String password){
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.birthdate = birthdate;
         this.mail = mail;
         this.region = region;
-        try {
+        this.password=password;
+            try {
          gem = new GraphEdgeMatrix(5);
          } catch (GraphException e) {
             e.printStackTrace();
@@ -34,12 +48,12 @@ public class Accounts {
     public GraphEdgeMatrix getGraph(){    
         return gem;
     }
-    public int getIdAccount() {
-        return idAccount;
+    public int getId() {
+        return id;
     }
 
-    public void setIdAccount(int idAccount) {
-        this.idAccount = idAccount;
+    public void setId(int id) {
+        this.id = id;
     }
   
     public String getName() {
@@ -81,15 +95,29 @@ public class Accounts {
     public void setRegion(String region) {
         this.region = region;
     }
-
-   
+    public void setPassword(String password){
+        this.password=password;
+    }
+    public String getPassword(){
+        return password;
+    }
 
     @Override
-    public String toString() {
-        return idAccount + "," + name + "," + lastName + "," +  "," + birthdate + "," + mail + "," + region;
+    public String toString(){        
+        return "Accounts{" +
+                "id=" + id +
+                ",name=" + name +
+                ",lastName=" + lastName +
+                ",birthDate=" + birthdate+
+                ",mail=" + mail+
+                ",region=" + region +
+                ",password=" + password +
+                "}";
+    
     }
 
     
     
     
 }
+
