@@ -3,21 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Presentation;
+
 import Login.AccountsList;
 import Login.Accounts;
 import javax.swing.JOptionPane;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
+
 /**
  *
  */
 public class Window extends javax.swing.JFrame {
-private AccountsList ac;
+
+    private AccountsList ac;
+
     /**
      * Creates new form Window
      */
     public Window() {
         initComponents();
-        ac=new AccountsList(20);
+        ac = new AccountsList(20);
     }
 
     /**
@@ -232,18 +236,18 @@ private AccountsList ac;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-ac.addAccount(new Accounts(12,jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText(),jTextField6.getText())); 
- JOptionPane.showMessageDialog(null,"Se guardo el usuario");
+        ac.addAccount(new Accounts(12, jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText(), jTextField5.getText(), jTextField6.getText()));
+        JOptionPane.showMessageDialog(null, "Se guardo el usuario");
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-ac.searchAccount(jTextField7.getText(),jPasswordField1.getText());        // TODO add your handling code here:
+        ac.searchAccount(jTextField7.getText(), jPasswordField1.getText());        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-showPanelNodeTv();  
+        showPanelNodeTv();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -282,15 +286,19 @@ showPanelNodeTv();
         });
     }
 
-    public void showPanelNodeTv(){
-    
+    /**
+     * Method to show the Node TV panel. Método para mostrar el panel de Node
+     * TV.
+     */
+    public void showPanelNodeTv() {
+
         NodeTvi show = new NodeTvi();
-        show.setSize(1500,650);
-        show.setLocation(0,0);
-        
+        show.setSize(1500, 650);
+        show.setLocation(0, 0);
+
         JPContenedor.removeAll();
         JPContenedor.add(show, new AbsoluteConstraints(0,
-                0,-1,-1));
+                0, -1, -1));
         JPContenedor.revalidate();
         JPContenedor.repaint();
     }

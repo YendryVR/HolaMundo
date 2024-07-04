@@ -1,11 +1,10 @@
 package Login;
 import Graph.GraphEdgeMatrix;
 import Graph.GraphException;
-//import com.fasterxml.jackson.annotation.JsonCreator;
-//import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 public class Accounts {
- 
+  // Attributes / Atributos
     private int id;
     private String name;
     private String lastName;    
@@ -17,8 +16,18 @@ public class Accounts {
     public Profiles profile;
     
     
-
-    //@JsonCreator
+ /**
+     * Constructor to initialize an account with the given details.
+     * Constructor para inicializar una cuenta con los detalles dados.
+     *
+     * @param id        The ID of the account / El ID de la cuenta
+     * @param name      The name of the account holder / El nombre del titular de la cuenta
+     * @param lastName  The last name of the account holder / El apellido del titular de la cuenta
+     * @param birthdate The birthdate of the account holder / La fecha de nacimiento del titular de la cuenta
+     * @param mail      The email of the account holder / El correo electrónico del titular de la cuenta
+     * @param region    The region of the account holder / La región del titular de la cuenta
+     * @param password  The password for the account / La contraseña de la cuenta
+     */
     public Accounts(int id,
             String name,
             String lastName,
@@ -39,15 +48,28 @@ public class Accounts {
             e.printStackTrace();
         }
     }
+     /**
+     * Method to add a profile to the account.
+     * Método para agregar un perfil a la cuenta.
+     *
+     * @param profile The profile to add / El perfil a agregar
+     */ 
     public void addProfile(Profiles profile){
         try {   gem.addVertex(profile);
     } catch (GraphException e) {
             e.printStackTrace();
         }
     }
+    /**
+     * Method to get the graph associated with the account.
+     * Método para obtener el grafo asociado con la cuenta.
+     *
+     * @return The graph / El grafo
+     */
     public GraphEdgeMatrix getGraph(){    
         return gem;
     }
+     // Getter and Setter methods / Métodos Getter y Setter
     public int getId() {
         return id;
     }
@@ -115,9 +137,6 @@ public class Accounts {
                 "}";
     
     }
-
-    
-    
     
 }
 

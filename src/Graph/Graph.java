@@ -1,40 +1,45 @@
 package Graph;
 
+/**
+ * Esta interfaz define operaciones para una estructura de datos de grafo.
+ * 
+ * This interface defines operations for a graph data structure.
+ */
 public interface Graph {
 
-    // Eliminar todo el grafo
+   // Clear the entire graph / Eliminar todo el grafo
     public void clear();
 
-    // Devuelve verdadero o falso si el grafo está vacío o no
+    // Check if the graph is empty / Devuelve verdadero o falso si el grafo está vacío o no
     public boolean isEmpty();
 
-    // Devuelve el tamaño del grafo basado en la cantidad de vértices
+    // Get the size of the graph based on the number of vertices / Devuelve el tamaño del grafo basado en la cantidad de vértices
     public int getSize();
 
-    // Verdadero si el vértice existe, falso si no
+    // Check if a vertex exists / Verdadero si el vértice existe, falso si no
     public boolean existsVertex(Object element);
 
-    // Verdadero si la arista existe, falso si no
+    // Check if an edge exists between two vertices / Verdadero si la arista existe, falso si no
     public boolean existsEdge(Object v1, Object v2);
 
-    // Insertar un nuevo vértice en el TDA
+    // Insert a new vertex into the graph / Insertar un nuevo vértice en el grafo
     public void addVertex(Object element) throws GraphException;
 
-    // Agregar una nueva arista entre dos de los vértices
+    // Add a new edge between two vertices / Agregar una nueva arista entre dos vértices
     public void addEdge(Object v1, Object v2);
 
-    // Devuelve la posición del vértice
+    // Get the position of a vertex / Devuelve la posición del vértice
     public int getPosition(Object element);
 
-    // Agregar peso a la arista entre dos vértices
+    // Add weight to an edge between two vertices / Agregar peso a la arista entre dos vértices
     public void addWeight(Object v1, Object v2, int weight);
 
-    // Realizar búsqueda en profundidad (DFS)
+    // Perform Depth-First Search (DFS) / Realizar búsqueda en profundidad (DFS)
     public void dfs(Object start);
 
-    // Realizar búsqueda en anchura (BFS)
+    // Perform Breadth-First Search (BFS) / Realizar búsqueda en anchura (BFS)
     public void bfs(Object start);
 
-    // Encontrar la ruta más corta usando el algoritmo de Dijkstra
+    // Find the shortest path using Dijkstra's algorithm / Encontrar la ruta más corta usando el algoritmo de Dijkstra
     public void dijkstra(Object start);
 }

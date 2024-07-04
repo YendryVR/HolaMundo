@@ -5,17 +5,30 @@ import static java.time.LocalDateTime.now;
 import java.time.format.DateTimeFormatter;
 
 /**
+ 
+ * Class representing a television program.
+ * Clase que representa un programa de televisión.
  *
  * @author Rene y yendry
  */
 public class Programs {
 
-    private String programName;
-    private String programInformation;
-    private int durationMinutes;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private String programName;          // Name of the program / Nombre del programa
+    private String programInformation;   // Information or description about the program / Información o descripción sobre el programa
+    private int durationMinutes;         // Duration of the program in minutes / Duración del programa en minutos
+    private LocalDateTime startTime;     // Start time of the program / Hora de inicio del programa
+    private LocalDateTime endTime;       // End time of the program / Hora de finalización del programa
 
+    /**
+     * Constructor to initialize a television program.
+     * Constructor para inicializar un programa de televisión.
+     *
+     * @param programName Name of the program / Nombre del programa
+     * @param programInformation Information or description about the program / Información o descripción sobre el programa
+     * @param durationMinutes Duration of the program in minutes / Duración del programa en minutos
+     * @param startTime Start time of the program / Hora de inicio del programa
+    * @param endTime End time of the program / Hora de finalización del programa
+     */
     public Programs(String programName, String programInformation,
             int durationMinutes, LocalDateTime startTime,
             LocalDateTime endTime) {
@@ -26,7 +39,7 @@ public class Programs {
         this.endTime = endTime;
 
     }
-
+ // Getter and Setter methods / Métodos Getter y Setter
     public String getProgramName() {
         return programName;
     }
@@ -66,7 +79,12 @@ public class Programs {
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
-
+ /**
+     * Returns a string representation of the program including its details.
+     * Devuelve una representación en cadena del programa incluyendo sus detalles.
+     *
+     * @return String representation of the program / Representación en cadena del programa
+     */
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
@@ -81,7 +99,12 @@ public class Programs {
                 programName, programInformation, durationMinutes,
                 formattedStartTime, formattedEndTime);
     }
-
+/**
+     * Main method for testing the Programs class.
+     * Método principal para probar la clase Programs.
+     *
+     * @param args Command-line arguments / Argumentos de línea de comandos
+     */
     public static void main(String[] args) {
         LocalDateTime now = LocalDateTime.now();
         Programs p = new Programs("Doki", "Un perro y sus aventuras alocadas",

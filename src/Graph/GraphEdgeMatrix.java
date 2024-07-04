@@ -2,13 +2,24 @@ package Graph;
 
 import java.util.*;
 
+/**
+ * Class representing a graph using an adjacency matrix.
+ * Clase que representa un grafo usando una matriz de adyacencia.
+ * Implements the Graph interface.
+ * Implementa la interfaz Graph.
+ */
 public class GraphEdgeMatrix implements Graph {
+ private Vertex[] vertex; // Stores the vertices of the graph / Almacena los vértices del grafo
+    private Object[][] edgeMatrix; // Adjacency matrix for the edges / Matriz de adyacencia para las aristas
+    private int cont; // Controls the number of vertices / Controla la cantidad de vértices
+    private int n; // Maximum number of vertices that can be created / Máxima cantidad de vértices que podemos crear
 
-    private Vertex[] vertex; // Almacena los vértices del grafo
-    private Object[][] edgeMatrix; // Matriz de adyacencia para las aristas
-    private int cont; // Controla la cantidad de vértices
-    private int n; // Máxima cantidad de vértices que podemos crear
-
+    /**
+     * Constructor to initialize the graph with a maximum number of vertices.
+     * Constructor para inicializar el grafo con una cantidad máxima de vértices.
+     *
+     * @param n Maximum number of vertices / Máxima cantidad de vértices
+     */
     public GraphEdgeMatrix(int n) {
         if (n < 0) {
             System.exit(0);
@@ -21,6 +32,10 @@ public class GraphEdgeMatrix implements Graph {
     }
 
     //------------------------------------------------------------------- MÉTODOS
+     /**
+     * Initializes the edge matrix to zero.
+     * Inicializa la matriz de aristas a cero.
+     */
     public void startEdgeMatrix() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {

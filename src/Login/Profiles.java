@@ -4,18 +4,23 @@
  */
 package Login;
 
-//import com.fasterxml.jackson.annotation.JsonCreator;
-//import com.fasterxml.jackson.annotation.JsonProperty;
-
+/**
+ * Class representing user profiles.
+ * Clase que representa perfiles de usuario.
+ */
 public class Profiles {
-    private String name;
-    private int id;
-    private int age;
-    private String image;
-    public Profiles(String name,int age){
-    this.name=name;
-    this.age=age;    
-    }
+ private String name; // Profile name / Nombre del perfil
+    private int id; // Profile ID / ID del perfil
+    private int age; // Profile age / Edad del perfil
+    private String image; // Profile image URL / URL de la imagen del perfil
+
+    /**
+     * Constructor for creating a profile without an image.
+     * Constructor para crear un perfil sin imagen.
+     *
+     * @param name Name of the profile / Nombre del perfil
+     * @param age Age of the profile / Edad del perfil
+     */
     
     public Profiles(int id,String name,int age,String image){
     this.id=id;
@@ -23,6 +28,7 @@ public class Profiles {
     this.age=age;    
     this.image=image;
     }
+    // Getter and Setter methods / Métodos Getter y Setter
     public void setId(int id){
         this.id=id;
     }
@@ -48,8 +54,12 @@ public class Profiles {
         return image;
     }
             
-
-    
+  /**
+     * String representation of the profile object.
+     * Representación en cadena del objeto perfil.
+     *
+     * @return A string representation of the profile object / Una representación en cadena del objeto perfil
+     */
         @Override
     public String toString(){
         return "profiles{" +

@@ -10,14 +10,16 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        // Create a ProgramsManager with a maximum number of programs per channel
         // Crear un gestor de programas con un máximo de programas por canal
         ProgramsManager manager = new ProgramsManager(10);
-
+        
+        // Add channels
         // Agregar canales
         manager.addChannel("Channel1");
         manager.addChannel("Channel2");
-
+        
+        // Example programs
         // Ejemplo de programas
         Programs program1 = new Programs("Program 1", "Description 1", 30,
                 LocalDateTime.of(2024, 7, 2, 18, 0),
@@ -35,11 +37,13 @@ public class Main {
                 "path/to/image3.jpg", "Genre 1", false);
 
         try {
+              // Add programs to channels
             // Agregar programas a los canales
             manager.addProgram("Channel1", program1);
             manager.addProgram("Channel1", program2);
             manager.addProgram("Channel2", program3);
 
+            // Print programs by channel
             // Imprimir programas por canal
             System.out.println("Programas en Channel1:");
             manager.printProgramsByChannel("Channel1");
@@ -47,10 +51,12 @@ public class Main {
             System.out.println("Programas en Channel2:");
             manager.printProgramsByChannel("Channel2");
 
+            // Move programs
             // Mover programas
             manager.moveProgramLeft("Channel1", program2);
             manager.moveProgramRight("Channel2", program3);
 
+            // Print programs after moving
             // Imprimir programas después de moverlos
             System.out.println("Programas en Channel1 después de mover 'Program 2' a la izquierda:");
             manager.printProgramsByChannel("Channel1");

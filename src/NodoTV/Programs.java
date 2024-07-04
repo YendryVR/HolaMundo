@@ -1,18 +1,34 @@
 package NodoTV;
 
 import java.time.LocalDateTime;
-
+/**
+ * Represents a television program.
+ * Representa un programa de televisión.
+ */
 public class Programs {
-    private String programName;
-    private String programInformation;
-    private int durationMinutes;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
-    private String imagePath;
-    private String genre;
-    private boolean parentalControl;
+       private String programName;         // Program name / Nombre del programa
+    private String programInformation;  // Program information / Información del programa
+    private int durationMinutes;        // Duration in minutes / Duración en minutos
+    private LocalDateTime startTime;    // Start time / Hora de inicio
+    private LocalDateTime endTime;      // End time / Hora de finalización
+    private String imagePath;           // Image path / Ruta de la imagen
+    private String genre;               // Program genre / Género del programa
+    private boolean parentalControl;    // Parental control / Control parental
 
-    // Constructor para inicializar un objeto Programs
+    /**
+     * Constructor to initialize a program with all details.
+     * Constructor para inicializar un programa con todos los detalles.
+     *
+     * @param programName         Program name / Nombre del programa
+     * @param programInformation  Program information / Información del programa
+     * @param durationMinutes     Duration in minutes / Duración en minutos
+     * @param startTime           Start time / Hora de inicio
+     * @param endTime             End time / Hora de finalización
+     * @param imagePath           Image path / Ruta de la imagen
+     * @param genre               Program genre / Género del programa
+     * @param parentalControl     Parental control / Control parental
+     */
+    
     public Programs(String programName, String programInformation, int durationMinutes,
                     LocalDateTime startTime, LocalDateTime endTime, String imagePath,
                     String genre, boolean parentalControl) {
@@ -25,7 +41,17 @@ public class Programs {
         this.genre = genre;
         this.parentalControl = parentalControl;
     }
-
+/**
+     * Constructor to initialize a program without image path.
+     * Constructor para inicializar un programa sin ruta de imagen.
+     *
+     * @param programName         Program name / Nombre del programa
+     * @param programInformation  Program information / Información del programa
+     * @param durationMinutes     Duration in minutes / Duración en minutos
+     * @param startTime           Start time / Hora de inicio
+     * @param endTime             End time / Hora de finalización
+     * @param parentalControl     Parental control / Control parental
+     */
     public Programs(String programName, String programInformation, int durationMinutes, LocalDateTime startTime, LocalDateTime endTime, boolean parentalControl) {
         this.programName = programName;
         this.programInformation = programInformation;
@@ -36,7 +62,7 @@ public class Programs {
     }
     
 
-    // Getters y Setters para acceder y modificar los campos privados
+    // Getter and Setter methods / Métodos Getter y Setter
 
     public String getProgramName() {
         return programName;

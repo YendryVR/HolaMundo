@@ -156,28 +156,35 @@ public class NodeTvi extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
+    /**
+     * Method to show the home panel. Método para mostrar el panel de inicio.
+     */
+    public void showHomePanel() {
 
-    public void showHomePanel(){
-    
         JPAdd show = new JPAdd();
-        show.setSize(1500,650);
-        show.setLocation(0,0);
-        
+        show.setSize(1500, 650);
+        show.setLocation(0, 0);
+
         JPContainer.removeAll();
         JPContainer.add(show, new AbsoluteConstraints(0,
-                0,-1,-1));
+                0, -1, -1));
         JPContainer.revalidate();
         JPContainer.repaint();
     }
-      public void showProgrammingPanel(){
-    
+
+    /**
+     * Method to show the programming panel. Método para mostrar el panel de
+     * programación.
+     */
+    public void showProgrammingPanel() {
+
         Programming show = new Programming();
-        show.setSize(1500,650);
-        show.setLocation(0,0);
-        
+        show.setSize(1500, 650);
+        show.setLocation(0, 0);
+
         JPContainer.removeAll();
         JPContainer.add(show, new AbsoluteConstraints(0,
-                0,-1,-1));
+                0, -1, -1));
         JPContainer.revalidate();
         JPContainer.repaint();
     }
