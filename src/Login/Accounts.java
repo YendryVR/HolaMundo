@@ -14,6 +14,7 @@ public class Accounts {
     private String birthdate;
     public GraphEdgeMatrix gem;
     public Profiles profile;
+      public boolean admin;
     
     
  /**
@@ -34,7 +35,7 @@ public class Accounts {
             String birthdate,
             String mail,
             String region,
-            String password){
+            String password, boolean admin){
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -42,6 +43,7 @@ public class Accounts {
         this.mail = mail;
         this.region = region;
         this.password=password;
+          this.admin=admin;
             try {
          gem = new GraphEdgeMatrix(5);
          } catch (GraphException e) {
@@ -60,13 +62,23 @@ public class Accounts {
             e.printStackTrace();
         }
     }
+
+    
+    public boolean isAdmin(){    
+        return admin;
+    }
+
     /**
      * Method to get the graph associated with the account.
      * Método para obtener el grafo asociado con la cuenta.
      *
      * @return The graph / El grafo
      */
-    public GraphEdgeMatrix getGraph(){    
+    public void setAdmin(boolean admin) {
+        this.admin = admin;    
+    }
+
+    public GraphEdgeMatrix getGraph() {
         return gem;
     }
      // Getter and Setter methods / Métodos Getter y Setter

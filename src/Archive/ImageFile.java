@@ -38,7 +38,8 @@ public class ImageFile {
 
     /**
      * Constructor to create an ImageFile object with a specified path and file
-     * name. Constructor para crear un objeto ImageFile con una ruta y nombre de
+     * name. 
+     * Constructor para crear un objeto ImageFile con una ruta y nombre de
      * archivo especificados.
      *
      * @param path the path to the file / la ruta al archivo

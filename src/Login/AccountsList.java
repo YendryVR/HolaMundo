@@ -67,27 +67,33 @@ public class AccountsList {
      * @param password The password of the account to search for / La contraseña de la cuenta a buscar
      * @return The found account if credentials match, otherwise null / La cuenta encontrada si las credenciales coinciden, de lo contrario null
      */
-    public Accounts searchAccount(String email, String password){
-        for(int i = 0; i < ac.length; i++){
-            if(ac[i].getMail().equals(email)){
-                if(ac[i].getPassword().equals(password)){
-                    temp = ac[i];
-                    System.out.println(temp);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Incorrect password");
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "There is no account associated with that email");
-            }  
-        }        
-        return temp;
+   public Accounts searchAccount(String mail, String password) {
+    for (int i = 0; i < this.ac.length; i++) {
+        if (this.ac[i] != null && this.ac[i].getMail().equals(mail) && this.ac[i].getPassword().equals(password)) {
+            return this.ac[i];
+        }
     }
+    return null;
+}
+
+
      /**
      * Retrieves the array of accounts.
      * Obtiene el arreglo de cuentas.
      *
      * @return The array of accounts / El arreglo de cuentas
      */
+    public void actualizarCuenta(String mail,Profiles prof){
+        for(int i=0;i<pointer;i++){
+            if(ac[i].getMail().equals(mail)){
+                   ac[i].addProfile(prof);
+                   JOptionPane.showMessageDialog(null, "se agrego el perfil "+ac[i].getName());
+                
+            }else{
+            } 
+        }           
+    }
+    
     
     public Accounts[] getAc(){
         return ac;
